@@ -70,6 +70,18 @@
       audio.play();
       key.classList.add('playing');
     });
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') {
+        return;
+      }
+      
+      // 這裡的 this 是 key，因為 key.addEventListener
+      this.classList.remove('playing');
+    }
+
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 - `data-` attribute
 - `querySelector`
 - `element.classList.toggle(token)`: removes an existing token from the list and returns false. If the token doesn't exist it's added and the function returns true.
+- `transitionend`: The transitionend event is fired when a CSS transition has completed.
 
 
 
