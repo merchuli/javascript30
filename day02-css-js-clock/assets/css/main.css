@@ -21,10 +21,13 @@ body {
 }
 
 .hand {
-  position: absolute;
-  top: 50%;
-  transform-origin: 100%;
   width: 50%;
   height: 4px;
   background-color: #000;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: transform 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
