@@ -27,15 +27,15 @@
       
       const seconds = now.getSeconds();
       const secondsDegrees = offsetDegree + (seconds / 60) * 360;
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+      secondHand.style.transform = `translate(0, -50%) rotate(${secondsDegrees}deg)`;
 
       const mins = now.getMinutes();
       const minsDegrees = offsetDegree + (mins / 60) * 360;
-      minHand.style.transform = `rotate(${minsDegrees}deg)`;
+      minHand.style.transform = `translate(0, -50%) rotate(${minsDegrees}deg)`;
 
       const hrs = now.getHours();
       const hrDegrees = offsetDegree + (hrs / 12) * 360;
-      hrHand.style.transform = `rotate(${hrDegrees}deg)`;
+      hrHand.style.transform = `translate(0, -50%) rotate(${hrDegrees}deg)`;
     }
 
     setInterval(setDate, 1000);
