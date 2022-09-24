@@ -10,6 +10,7 @@
 <body>
   <div class="clock">
     <div class="clock-face">
+      <div class="center"></div>
       <div class="hand hand--hour"></div>
       <div class="hand hand--min"></div>
       <div class="hand hand--sec"></div>
@@ -27,7 +28,7 @@
       const seconds = now.getSeconds();
       const secondsDegrees = offsetDegree + (seconds / 60) * 360;
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-      
+
       const mins = now.getMinutes();
       const minsDegrees = offsetDegree + (mins / 60) * 360;
       minHand.style.transform = `rotate(${minsDegrees}deg)`;

@@ -20,6 +20,17 @@ body {
   position: relative;
 }
 
+.clock-face .center {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: rgb(84, 149, 228);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .hand {
   width: 50%;
   height: 4px;
@@ -30,4 +41,19 @@ body {
   transform: rotate(90deg);
   transition: transform 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand--hour {
+  width: 50%;
+  height: 8px;
+  transform-origin: 100%;
+}
+
+.hand--min {
+  height: 4px;
+}
+
+.hand--sec {
+  height: 2px;
+  background-color: rgb(228, 108, 108);
 }
