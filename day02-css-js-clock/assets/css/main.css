@@ -1,0 +1,30 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.clock {
+  display: inline-block;
+}
+
+
+.clock-face {
+  width: 300px;
+  height: 300px;
+  border: 8px solid rgb(123, 217, 226);
+  border-radius: 160px;
+  position: relative;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  width: 50%;
+  height: 4px;
+  background-color: #000;
+}
