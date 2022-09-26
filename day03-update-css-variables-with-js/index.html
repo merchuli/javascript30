@@ -20,5 +20,16 @@
     <input type="color" name="base" value="#ffc600">
   </div>
   <img src="https://i.picsum.photos/id/737/800/500.jpg?hmac=LP6vVXhDj8iiTbWqcAeEwLBZxDbX7l3FFWSqYgQ4Lgs" alt="img_800x500">
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input');  // type: NodeList
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizeUnit || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+  </script>
 </body>
 </html>
