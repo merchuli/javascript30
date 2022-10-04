@@ -1,3 +1,4 @@
+console.log('Day04 - array cardio');
 const inventors = [
   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
   { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -23,17 +24,32 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
+const ans1 = inventors.filter((item) => item.year >= 1500 && item.year < 1600);
+console.log('ans1', ans1);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
+const ans2 = inventors.map((item) => `${item.first} ${item.last}`);
+console.log('ans2', ans2);
+
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
+const ans3 = inventors.sort((a, b) => a.year - b.year);
+console.log('ans3', ans3);
+
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
+const ans4 = inventors.reduce((prev, curr) => prev + (curr.passed - curr.year), 0);
+console.log('ans4', ans4);
+
 
 // 5. Sort the inventors by years lived
+const ans5 = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));
+console.log('ans5', ans5);
+
+
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -41,7 +57,20 @@ const people = [
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+const ans7 = people.sort();
+console.log('ans7', ans7);
+
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+const myMap = new Map();
+data.forEach((key) => {
+  if (myMap.has(key)) {
+    myMap.set(key, myMap.get(key) + 1);
+    return;
+  }
+
+  myMap.set(key, 1);
+});
+console.log('myMap(ans8)', myMap);
