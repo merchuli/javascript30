@@ -25,45 +25,65 @@ const people = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const ans1 = inventors.filter((item) => item.year >= 1500 && item.year < 1600);
-console.log('ans1', ans1);
+console.log('ans1', ans1);  // V
+console.table(ans1);
+
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 const ans2 = inventors.map((item) => `${item.first} ${item.last}`);
-console.log('ans2', ans2);
+console.log('ans2', ans2);  // V
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 const ans3 = inventors.sort((a, b) => a.year - b.year);
-console.log('ans3', ans3);
+console.log('ans3', ans3);  // V
+console.table(ans3);
 
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 const ans4 = inventors.reduce((prev, curr) => prev + (curr.passed - curr.year), 0);
-console.log('ans4', ans4);
+console.log('ans4', ans4);  // V
 
 
 // 5. Sort the inventors by years lived
-const ans5 = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));
+const ans5 = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));  // 由小到大
 console.log('ans5', ans5);
+console.table(ans5);
 
+const ans5_2 = inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year));  // 由大到小
+console.table(ans5_2); 
 
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// 在頁面的 console 操作
+// const categoryGroup = document.querySelector('.mw-category');
+// const links = Array.from(categoryGroup.querySelectorAll('a'));  // categoryGroup.querySelectorAll('a') 的 type 會是 NodeList，不能直接使用 map
+// const ans6 = links
+//               .map((item) => item.textContent)
+//               .filter((item) => item.includes('de'));
 
 
 // 7. sort Exercise
-// Sort the people alphabetically by last name
-const ans7 = people.sort();
-console.log('ans7', ans7);
+// Sort the people alphabetically by "last name"
+const ans7 = people.sort((prev, next) => {
+  const prevLastName = prev.split(', ')[1];
+  const nextLastName = next.split(', ')[1];
+
+  return prevLastName > nextLastName ? 1 : -1;
+});
+console.table(ans7);
 
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
+
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+// Method 1: Use Map
 const myMap = new Map();
 data.forEach((key) => {
   if (myMap.has(key)) {
@@ -73,4 +93,16 @@ data.forEach((key) => {
 
   myMap.set(key, 1);
 });
-console.log('myMap(ans8)', myMap);
+console.log('ans8 - I', Object.fromEntries(myMap));
+
+
+// Method 2: Use reduce
+const ans8 = data.reduce((obj, key) => {
+  if (!obj[key]) {
+    obj[key] = 0;
+  }
+
+  obj[key] += 1;
+  return obj;
+}, {});
+console.log('ans8 - II', ans8);
