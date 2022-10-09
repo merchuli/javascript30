@@ -55,7 +55,6 @@ body {
 .panel > * {
   margin: 0;
   width: 100%;
-  border: 1px solid red;
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
