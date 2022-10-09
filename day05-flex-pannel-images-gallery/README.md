@@ -1,0 +1,4 @@
+# Day05 - Flex Pannel Images Gallery
+- box-sizing: The `box-sizing` CSS property sets how the total width and height of an element is calculated.
+  - content-box: If you set an element's width to 100 pixels, then the element's content box will be 100 pixels wide, and the width of any border or padding will be added to the final rendered width, making the element wider than 100px.
+  - border-box: tells the browser to account for any border and padding in the values you specify for an element's width and height. If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width.

@@ -2,8 +2,6 @@ html {
   box-sizing: border-box;
   background: #ffc600;
   font-family: 'Amatic SC', cursive;
-  font-size: 32px;
-  line-height: 1.5;
 }
 
 body {
@@ -21,6 +19,8 @@ body {
 }
 
 .panel {
+  font-size: 32px;
+  line-height: 1.5;
   /** As a flex item */
   flex: 1 1 auto;
   /** As a flex container */
@@ -34,6 +34,15 @@ body {
   text-align: center;
   background-size: cover;
   background-position: center;
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+}
+
+.panel.open {
+  flex: 5  1 auto;
+  font-size: 40px;
 }
 
 .panel1 { background-image:url(https://i.picsum.photos/id/1041/1500/1500.jpg?hmac=TP58f5LqcXbkRArZRHYVm2EvaYOHY5gkN8XOHOs6PWQ); }
@@ -44,8 +53,19 @@ body {
 
 
 .panel > * {
+  margin: 0;
+  width: 100%;
   border: 1px solid red;
   flex: 1 1 auto;
   display: flex;
+  justify-content: center;
   align-items: center;
+  transition: transform 0.5s;
 }
+
+.panel > *:first-child { transform: translateY(-100%); }
+.panel.open-active > *:first-child { transform: translateY(0); }
+.panel > *:last-child { transform: translateY(100%); }
+.panel.open-active > *:last-child { transform: translateY(0); }
+
+
