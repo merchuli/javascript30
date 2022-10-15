@@ -1,0 +1,3 @@
+- How to put a variables into a regular expression
+  - `new RegExp(keyword, 'gi');`
+- change event on input text fires when it loses focus
