@@ -32,6 +32,11 @@
   overflow: scroll
 }
 
+.search-box ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .highlight {
   background: #ffc600;

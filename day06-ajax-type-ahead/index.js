@@ -22,15 +22,23 @@ function findMatches2(keyword, cities) {
   });
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 
 function displayMatches() {
   const matchArray = findMatches2(this.value, cities);
   const listHtml = matchArray
     .map((item) => {
+      const regex = new RegExp(this.value, 'gi');
+      const cityElement = item.city.replace(regex, `<span class="highlight">${this.value}</span>`);
+      const stateElement = item.state.replace(regex, `<span class="highlight">${this.value}</span>`);
+
       return `
         <li>
-          <span class="name">${item.city}, ${item.state}</span>
-          <span class="population">${item.population}</span>
+          <span class="name">${cityElement}, ${stateElement}</span>
+          <span class="population">${numberWithCommas(item.population)}</span>
         </li>
       `;
     })
@@ -42,6 +50,5 @@ function displayMatches() {
 const searchInput = document.getElementById('search-bar');
 const searchList = document.getElementById('search-list');
 
-console.log('searchInput', searchInput)
 // searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
