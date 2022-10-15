@@ -26,14 +26,18 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+function highlightElement(match) {
+  return `<span class="highlight">${match}</span>`;
+}
+
 
 function displayMatches() {
   const matchArray = findMatches2(this.value, cities);
   const listHtml = matchArray
     .map((item) => {
       const regex = new RegExp(this.value, 'gi');
-      const cityElement = item.city.replace(regex, `<span class="highlight">${this.value}</span>`);
-      const stateElement = item.state.replace(regex, `<span class="highlight">${this.value}</span>`);
+      const cityElement = item.city.replace(regex, highlightElement);
+      const stateElement = item.state.replace(regex, highlightElement);
 
       return `
         <li>
