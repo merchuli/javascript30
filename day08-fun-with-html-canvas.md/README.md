@@ -19,7 +19,12 @@ hue 的數值從 0 ~ 360
 ![image](./images/mdn-hue-wheel.png)
 
 
+### globalCompositeOperation
+Sets the type of compositing operation to apply when drawing new shapes.
+
+
 
 ## Reference
 [1] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 [2] https://mothereffinghsl.com/
+[3] https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
