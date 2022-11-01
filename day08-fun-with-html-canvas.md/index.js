@@ -13,6 +13,8 @@ ctx.lineWidth = 50;
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
+let hue = 0;
+let direction = true;
 
 function draw(e) {
   if (!isDrawing) {
@@ -20,12 +22,17 @@ function draw(e) {
     return;
   }
   console.log(e);
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);  // start from
   ctx.lineTo(e.offsetX, e.offsetY);  // go to
   ctx.stroke();
 
   [lastX, lastY] = [e.offsetX, e.offsetY];
+  hue = (hue + 1)%360;
+
+  direction = (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) ? !direction : direction;
+  ctx.lineWidth = direction ? ctx.lineWidth + 1 : ctx.lineWidth - 1;
 }
 
 // Track the mouse behavior
