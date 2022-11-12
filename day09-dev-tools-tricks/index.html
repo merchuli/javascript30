@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day09 - Dev Tools Tricks</title>
+</head>
+<body>
+  <p onclick="makeGreen()">xBREAKxDOWNx</p>
+  <script>
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#bada55';
+      p.style.fontSize = '50px';
+    }
+
+    /** 關於 console log 的一些玩法 */
+    // Regular
+    console.log('Hello');
+
+    // Interpolated
+    console.log('Hello, My name is %s %s!', 'Merchu', 'Liang');
+
+    // Styled
+    console.log('%c Colorful Words!', 'font-size: 24px; color: purple;');
+
+    // Warn
+    console.warn('Oh! NOOOOOOOO!');
+
+    // Error
+    console.error('Opps :(');
+
+    // Info
+    console.info('Some information');
+
+    // Testing
+    // assetion /  the output message if it is wrong
+    console.assert(1 === 2, '1 not equals to 2');
+
+    // Clearing
+    // console.clear();
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    const dogs = [{name: 'pipi', age: 12}, {name: 'kiki', age: 7}];
+    dogs.forEach((dog) => {
+      // console.group(`--- ${dog.name} ---`);
+      console.groupCollapsed(`--- ${dog.name} ---`);
+      console.log('dog name: ', dog.name);
+      console.log('dog age: ', dog.age);
+      console.groupEnd(`--- ${dog.name} ---`);
+    });
+
+    // Counting
+    console.count('Hello');
+    console.count('World');
+    console.count('World');
+    console.count('Hello');
+    console.count('Hello');
+    console.count('World');
+    console.count('World');
+    console.count('World');
+
+
+    // Timing
+    console.time('same string');
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((response) => response.json())
+      .then((json) => {
+        console.timeEnd('same string');
+        console.log(json);
+      });
+
+  </script>
+</body>
+</html>
