@@ -15,3 +15,30 @@ const toggleBtn = player.querySelector('.toggle');
 const skipBtns = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
+
+
+/** Build out functions */
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+    return;
+  }
+
+  video.pause();
+
+  // Another way to toggle play
+  // const method = video.paused ? 'play' : 'pause';
+  // video[method]();
+}
+
+function updateToggleBtn() {
+  toggleBtn.textContent = this.paused ? '►' : '❚❚';
+}
+
+
+/** Hook up the event listeners */
+video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateToggleBtn);
+video.addEventListener('pause', updateToggleBtn);
+
+toggleBtn.addEventListener('click', togglePlay);
