@@ -35,6 +35,10 @@ function updateToggleBtn() {
   toggleBtn.textContent = this.paused ? '►' : '❚❚';
 }
 
+function skip() {
+  video.currentTime += parseFloat(this.dataset.skip);
+}
+
 
 /** Hook up the event listeners */
 video.addEventListener('click', togglePlay);
@@ -42,3 +46,4 @@ video.addEventListener('play', updateToggleBtn);
 video.addEventListener('pause', updateToggleBtn);
 
 toggleBtn.addEventListener('click', togglePlay);
+skipBtns.forEach((element) => element.addEventListener('click', skip));
